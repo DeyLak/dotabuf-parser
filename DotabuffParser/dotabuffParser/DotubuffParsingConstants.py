@@ -5,7 +5,7 @@ PLAYER = 'Player'
 KILLS = 'K'
 DEATHS = 'D'
 ASSISTS = 'A'
-NET_WORTH = 'Net'
+NET_WORTH = 'NET'
 LAST_HITS = 'LH'
 DENIES = 'DN'
 GPM = 'GPM'
@@ -15,3 +15,26 @@ HEAL = 'HEAL'
 BUILDING_DAMAGE = 'BLD'
 WARDS_PLACED = 'Wards'
 ITEMS = 'Items'
+
+OBSERVER = 'observer'
+SENTRY = 'sentry'
+
+RESULT_VALUES_ORDER = [
+    PLAYER,
+    ROLE,
+    LINE,
+    HERO,
+    KILLS,
+    DEATHS,
+    ASSISTS,
+    NET_WORTH,
+    LAST_HITS,
+    DENIES,
+    GPM,
+    XPM,
+    DAMAGE,
+    HEAL,
+    BUILDING_DAMAGE,
+    OBSERVER,
+    SENTRY,
+]
