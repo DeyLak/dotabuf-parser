@@ -1,4 +1,4 @@
-from dotabuffParser.DotubuffParsingConstants import *
+from HtmlParser.DotabuffParser.dotabuffParser.DotubuffParsingConstants import *
 
 
 THOUSAND_SIGN = 'k'

@@ -1,10 +1,11 @@
 import re
+
 from dateutil.parser import parse
 
-from dotabuffParser.MatchPage import MatchPage
-from dotabuffParser.DotabuffConnector import get_page
-from dotabuffParser.DotabuffUrls import get_teams_matches_url
-from dotabuffParser.DotaConstants import PATCH_700_DATE
+from HtmlParser.DotabuffParser.dotabuffParser.DotaConstants import PATCH_700_DATE
+from HtmlParser.DotabuffParser.dotabuffParser.DotabuffUrls import get_teams_matches_url
+from HtmlParser.DotabuffParser.dotabuffParser.MatchPage import MatchPage
+from HtmlParser.common.SiteConnector import get_page
 
 
 class TeamsMatchesPage:

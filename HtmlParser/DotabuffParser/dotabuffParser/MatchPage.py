@@ -1,9 +1,8 @@
-from dotabuffParser.DotabuffConnector import get_page
-from dotabuffParser.DotabuffUrls import get_match_url
-from dotabuffParser.HtmlParsingHelpers import get_table_row_names, parse_table_row
-from dotabuffParser.DotubuffParsingConstants import *
-from dotabuffParser.DotaConstants import TEAMS
-
+from HtmlParser.DotabuffParser.dotabuffParser.DotaConstants import TEAMS
+from HtmlParser.DotabuffParser.dotabuffParser.DotabuffUrls import get_match_url
+from HtmlParser.DotabuffParser.dotabuffParser.DotubuffParsingConstants import *
+from HtmlParser.DotabuffParser.dotabuffParser.HtmlParsingHelpers import get_table_row_names, parse_table_row
+from HtmlParser.common.SiteConnector import get_page
 
 BAD_MATCHES = []
 

@@ -1,7 +1,7 @@
 import os
 
-from dotabuffParser.DotubuffParsingConstants import RESULT_VALUES_ORDER
-from dotabuffParser.DotaConstants import TEAMS, PLAYERS_COUNT
+from HtmlParser.DotabuffParser.dotabuffParser.DotubuffParsingConstants import RESULT_VALUES_ORDER
+from HtmlParser.DotabuffParser.dotabuffParser.DotaConstants import TEAMS, PLAYERS_COUNT
 
 
 DEFAULT_RESULTS_FILE_NAME = '../../etc/matches.csv'

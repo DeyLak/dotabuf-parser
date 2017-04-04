@@ -1,12 +1,10 @@
-import traceback
 import time
 from urllib.error import HTTPError
 
-from dotabuffParser.TeamsMatchesPage import TeamsMatchesPage
-from dotabuffParser.DotabuffUrls import get_teams_url
-from dotabuffParser.DotabuffConnector import get_page
-from dotabuffParser.CsvWriter import *
-
+from HtmlParser.DotabuffParser.dotabuffParser.CsvWriter import *
+from HtmlParser.DotabuffParser.dotabuffParser.DotabuffUrls import get_teams_url
+from HtmlParser.DotabuffParser.dotabuffParser.TeamsMatchesPage import TeamsMatchesPage
+from HtmlParser.common.SiteConnector import get_page
 
 start_new_project()
 
