@@ -4,6 +4,7 @@ from urllib.error import HTTPError
 from HtmlParser.FootbalParser.transfermarketParser.CsvWriter import *
 from HtmlParser.FootbalParser.transfermarketParser.ParsingConstants import LEAGUES
 from HtmlParser.FootbalParser.transfermarketParser.LeaguePage import LeaguePage
+from HtmlParser.FootbalParser.googleSearch.index import output_teams_names
 
 
 def parse_transfermarket(path_prefix = './'):
@@ -35,3 +36,4 @@ def parse_transfermarket(path_prefix = './'):
 
 if __name__ == '__main__':
     parse_transfermarket('../../../')
+    output_teams_names('../../../')

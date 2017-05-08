@@ -4,6 +4,7 @@ from HtmlParser.common.SiteConnector import get_page
 
 from HtmlParser.FootbalParser.transfermarketParser.urls import get_league_url
 from HtmlParser.FootbalParser.transfermarketParser.ParsingConstants import *
+from HtmlParser.FootbalParser.googleSearch.index import get_team_name
 
 
 MILLION = 'Mill.'
@@ -33,10 +34,14 @@ class LeaguePage:
         for year in range(FIRST_SEASON, LAST_SEASON, -1):
             print('Season', year)
             seasonText = str(year)[2:] + '/' + str(year + 1)[2:]
-            self.new_parsed_data[seasonText] = {}
+            nextSeasonText = str(year + 1)[2:] + '/' + str(year + 2)[2:]
+            if seasonText not in self.new_parsed_data:
+                self.new_parsed_data[seasonText] = {}
+            if nextSeasonText not in self.new_parsed_data:
+                self.new_parsed_data[nextSeasonText] = {}
+
             for transferWindow in TRANSFER_WINDOWS:
                 print('Window', transferWindow)
-                self.new_parsed_data[seasonText][transferWindow] = {}
                 league_page = get_page(get_league_url(self.league, year, transferWindow))
 
                 team_heuristic_selector = '.box'
@@ -47,7 +52,7 @@ class LeaguePage:
                     team_condition = box.cssselect(team_box_condition_selector)
                     if (len(team_condition) == 0):
                         continue
-                    team_name = box.getchildren()[0].getchildren()[1].text
+                    team_name = get_team_name(box.getchildren()[0].getchildren()[1].text, self.league)
                     print('Team', team_name)
 
 
@@ -85,7 +90,17 @@ class LeaguePage:
 
                             team_info.append(parse_money(current_player.text))
 
-                    self.new_parsed_data[seasonText][transferWindow][team_name] = team_info
+                    if team_name not in self.new_parsed_data[seasonText]:
+                        self.new_parsed_data[seasonText][team_name] = {}
+
+                    if team_name not in self.new_parsed_data[nextSeasonText]:
+                        self.new_parsed_data[nextSeasonText][team_name] = {}
+
+                    if transferWindow == SEASON_WINTER:
+                        current_season = nextSeasonText
+                    else:
+                        current_season = seasonText
+                    self.new_parsed_data[current_season][team_name][transferWindow] = team_info
 
         return self.new_parsed_data
 

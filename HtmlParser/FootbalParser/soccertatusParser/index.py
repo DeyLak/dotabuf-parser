@@ -3,7 +3,7 @@ import time
 from urllib.error import HTTPError
 
 from HtmlParser.FootbalParser.soccertatusParser.CsvWriter import *
-from HtmlParser.FootbalParser.soccertatusParser.ParsingConstants import LEAGUES
+from HtmlParser.FootbalParser.soccertatusParser.ParsingConstants import LEAGUES, LEAGUES_DICT
 from HtmlParser.FootbalParser.soccertatusParser.LeaguePage import LeaguePage
 
 
@@ -20,7 +20,7 @@ def parse_soccerstatus(path_prefix = './'):
             try:
                 new_league = LeaguePage(league)
                 new_parsed_data = new_league.parse()
-                parsed_data[league] = new_parsed_data
+                parsed_data[LEAGUES_DICT[league]] = new_parsed_data
             except HTTPError as e:
                 print(e, 'Let\'s wait')
                 should_wait = True

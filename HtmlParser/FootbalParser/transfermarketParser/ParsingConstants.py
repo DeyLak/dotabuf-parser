@@ -31,6 +31,8 @@ PROPERTIES = [
     'Income',
 ]
 
+NO_DATA_EXCLUDE_PROP = PROPERTIES[0] + ' - ' + SEASON_SUMMER
+
 for type in TRANSFERS_TYPES:
     for i in range(VALUABLE_TRANSFERS_COUNT):
         PROPERTIES.append(type + str(i + 1))

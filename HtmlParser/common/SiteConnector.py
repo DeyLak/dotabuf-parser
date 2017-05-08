@@ -9,5 +9,7 @@ def get_request_headers():
     }
 
 def get_page(url):
+    if 'Users' in url:
+        return html.parse(url)
     request = Request(url, headers=get_request_headers())
     return html.parse(urlopen(request))

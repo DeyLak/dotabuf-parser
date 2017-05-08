@@ -1,6 +1,6 @@
 import os
 
-from HtmlParser.FootbalParser.fotballStatisticsParser.ParsingConstants import PROPERTIES
+from HtmlParser.FootbalParser.fotballStatisticsParser.ParsingConstants import PROPERTIES, LEAGUES_DICT
 
 
 DEFAULT_RESULTS_FILE_NAME = 'etc/football/fotballStatistics.csv'
@@ -34,7 +34,7 @@ def save_data(data, path_prefix):
         for year in current_league.keys():
             current_year = current_league[year]
             for entry in current_year:
-                str_result += league + ';' + year + ';' + ';'.join([escape_csv_string(field) for field in entry]) + '\n'
+                str_result += LEAGUES_DICT[league] + ';' + year + ';' + ';'.join([escape_csv_string(field) for field in entry]) + '\n'
 
     with open(path_prefix + DEFAULT_RESULTS_FILE_NAME, "w", encoding='utf8') as f:
         f.write('\uFEFF' + str_result)
